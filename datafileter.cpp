@@ -1,4 +1,3 @@
-
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
@@ -11,8 +10,8 @@ int main(int argc, char **argv) {
 		printf("参数错误!");
 		exit(1);
 	}
-	FILE* fp1 = fopen(argv[1], "r+");
-	FILE* fp2 = fopen(argv[2], "r+");
+	FILE* fp1 = fopen(argv[1], "r");
+	FILE* fp2 = fopen(argv[2], "r");
 	FILE* fp3 = fopen(FILE3, "w");
 	char buf1[20];
 	char buf2[20];
@@ -27,8 +26,8 @@ int main(int argc, char **argv) {
 		printf("文件打开失败!");
 		exit(1);
 	}
-A:  while (fgets(buf1, 21, fp1) !=NULL) {
-		while (fgets(buf2, 21, fp2) != NULL) {
+A:  while (fgets(buf1, 20, fp1) !=NULL) {
+		while (fgets(buf2, 20, fp2) != NULL) {
 			if (!strcmp(buf1, buf2)) {
 				rewind(fp2);
 				goto A;
