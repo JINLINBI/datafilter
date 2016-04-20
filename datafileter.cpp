@@ -1,3 +1,6 @@
+/*
+ * this version is too slow cause it read from and write into the hard drive this is writed on vs2015.
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
@@ -29,8 +32,8 @@ int main(int argc, char **argv) {
 A:  while (fgets(buf1, 20, fp1) !=NULL) {
 		while (fgets(buf2, 20, fp2) != NULL) {
 			if (!strcmp(buf1, buf2)) {
-				rewind(fp2);
-				goto A;
+				rewind(fp2);//rewind fp2 to file head
+				goto A;//break two layers of loops 
 			}
 		}
 		fprintf(fp3, "%s", buf1);
